@@ -202,17 +202,19 @@
   If you have sequenced your samples with NEOF, and have been notified that your data
   has been received, then you should be able to find your data on the HPC server.
 
-  Data is generally stored in the shared space '/shared/molecol2/NBAF/MiSeq/'.
+  Once you know the location of your data on the server, you can copy it into your own directory.
 
-  View the data directories contained within it and identify the one that belongs to you.
+  As an example, let's assume the data is it:
+  '/fastdata/user_name/sequence_data/'.
+
+  View the data in the directory and veryify the files belong to you.
   ```
-  ls /shared/molecol2/NBAF/MiSeq/
+  ls /fastdata/user_name/sequence_data/
   ```
 
-  If, for example, your data directory was called 'NBAF_project_010122', then you would
-  copy it onto your raw_data directory with the following:
+  You can copy the full directory of data into your raw_data directory with something like the following:
   ```
-  cp -r /shared/molecol2/NBAF/MiSeq/NBAF_project_010122/ /fastdata/$USER/my_project/raw_data/
+  cp -r /fastdata/user_name/sequence_data/ /fastdata/$USER/my_project/raw_data/
   ```
 
   Alternatively, to copy data from your personal computer onto the HPC you need to use a file transfer
@@ -276,12 +278,14 @@
   specify the extensions at steps where they are required using -W and -P if necessary.
   <br>
   <br>
-  <b><font size="4">3.6) Copy the dada2 R scripts</b></font>
+  <b><font size="4">3.6) Download the dada2 R scripts</b></font>
   <br>
-  Copy the required R scripts for the dada2 workflow into your 'scripts' directory.
+  Use 'git clone' to download the latest version of the scripts into your working directory. 
+  Move the scripts the downloaded scripts into your 'scripts' directory.
 
   ```
-  cp /fastdata/bi1xgf/dada2_hpc_scripts/* /fastdata/$USER/my_project/scripts
+  git clone https://github.com/graemefox/HPC_dada2.git /fastdata/<user>my_project/HPC_dada2
+  cp /fastdata/<user>my_project/HPC_dada2/scripts/* /fastdata/$USER/my_project/scripts
   ```
   <br>
   </details>

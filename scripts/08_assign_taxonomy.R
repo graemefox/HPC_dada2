@@ -25,6 +25,9 @@ seqtab.nochim <- readRDS(file = paste(path, "/R_objects/06_seqtab.nochim.rds", s
 ## assign taxonomy
 taxa <- assignTaxonomy(seqtab.nochim, opt$database, multithread=TRUE, verbose=T)
 
+## write out R objects for use later
+saveRDS(taxa, file = paste(path, “/R_objects/08_taxa.rds”, sep=“”))
+
 ## get db_name to add onto output
 db_name <- basename(opt$database)
 
